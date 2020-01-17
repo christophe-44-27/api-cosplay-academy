@@ -39,6 +39,12 @@ class Project
      */
     private $services;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="projects")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $owner;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -107,6 +113,18 @@ class Project
     public function setServices(?Service $services): self
     {
         $this->services = $services;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
