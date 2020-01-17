@@ -1,0 +1,33 @@
+api_platform:
+    # The title of the API.
+    title: 'Projekt - Système de gestion de projet'
+
+    # The description of the API.
+    description: "Projekt est un système de gestion de projet permettant à des entreprises de gérer efficacement leur projet en respectant certains concepts ITIL."
+
+    # The version of the API.
+    version: '0.1.0'
+
+    doctrine:
+      # To enable or disable Doctrine ORM support.
+      enabled: true
+
+    # The list of enabled formats. The first one will be the default.
+    formats:
+      jsonld:
+        mime_types: ['application/ld+json']
+
+      json:
+        mime_types: ['application/json']
+
+      html:
+        mime_types: ['text/html']
+
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
+
+    patch_formats:
+        json: ['application/merge-patch+json']
+
+    swagger:
+        versions: [3]
